@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+    function ajaxGet(url){
+      return new Promise((resolve, reject)=>{
+        $.ajax({
+          url,
+          dataType: 'json',
+          success(arr){
+            resolve(arr);
+          },
+          error(err){
+            reject(err);
+          }
+        });
+      });
+    }
+
+    let p1=ajaxGet('1.txt');
+    let p2=ajaxGet('2.txt');
+    let p3=ajaxGet('3.txt');
+
+    Promise.all([p1,p2,p3]).then((result)=>{
+      alert('成功');
+      alert(result[0]); //=>p1的结果=>[12,5,8]
+      alert(result[1]); //=>p2的结果=>12
+      alert(result[2]); //=>p3的结果=>{xxx}
+    }, ()=>{
+      alert('失败');
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

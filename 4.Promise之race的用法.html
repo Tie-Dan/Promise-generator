@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+    Promise.race([
+      $.ajax({url: '1.txt', dataType: 'json'}),
+      $.ajax({url: '2.txt', dataType: 'json'}),
+      $.ajax({url: '3.txt', dataType: 'json'})
+    ]).then(result=>{
+      alert(result);
+    }, err=>{
+      alert('全错了');
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+    $(()=>{
+      $('#btn1').click(()=>{
+        let obj=new Promise((resolve, reject)=>{
+          $.ajax({
+            url: '4.txt',
+            success(str){
+              resolve(str);
+            },
+            error(err){
+              reject(err);
+            }
+          })
+        });
+
+        obj.then(str=>{
+          alert('成功：'+str);
+        }, err=>{
+          alert('失败');
+        });
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <input type="button" name="" value="按钮" id="btn1">
+  </body>
+</html>

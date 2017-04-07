@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function *show(){
+      yield 12;
+      yield 88;
+
+      return 95;
+    }
+
+    let gen=show();
+
+    let res1=gen.next();      //{value: 12, done: false}
+    console.log(res1);
+
+    let res2=gen.next();      //{value: 88, done: false}
+    console.log(res2);
+
+    let res3=gen.next();      //{value: 95, done: true}
+    console.log(res3);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

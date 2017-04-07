@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+    function ajaxGet(url){
+      return new Promise((resolve, reject)=>{
+        $.ajax({
+          url,
+          dataType: 'json',
+          success(arr){
+            resolve(arr);
+          },
+          error(err){
+            reject(err);
+          }
+        });
+      });
+    }
+
+    Promise.all([
+      ajaxGet('1.txt'),
+      ajaxGet('2.txt'),
+      ajaxGet('3.txt')
+    ]).then((result)=>{
+      alert('成功');
+    }, ()=>{
+      alert('失败');
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

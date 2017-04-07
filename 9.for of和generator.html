@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function *show(){
+      let a=yield 12;     //xxx+5=>a      17
+      let b=yield 5;      //xxx*2=>b      10
+
+      return a+b;
+    }
+
+    let gen=show();
+
+    let res1=gen.next();
+      console.log(res1);
+    //res1.value=>12
+    //console.log(res1);
+
+    let res2=gen.next(res1.value+5);
+    //res2.value=>5
+    console.log(res2);
+    let result=gen.next(res2.value*2);
+    alert(result.value);  //27
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script>
+    let Promise=$.ajax({
+      url: '1.txt',
+      dataType: 'json'
+    }).then(arr=>{
+      alert(arr);
+    }, (err)=>{
+      alert(err);
+    });
+    console.log(Promise);
+      //jq的ajax 返回的就是promise
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

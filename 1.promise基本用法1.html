@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    let obj=new Promise((resolve, reject)=>{
+        //resolve->成功
+        //reject->失败
+        reject(12);
+    });
+
+    obj.then((num)=>{
+      alert('成功了'+num);
+    }, (num)=>{
+      alert('失败了'+num);
+    });
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

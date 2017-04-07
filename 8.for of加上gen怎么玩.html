@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function *show(){
+      yield 12;
+      yield 5;
+    }
+
+    let gen=show();
+
+    for(let value of gen){
+      alert(value);
+    }
+
+    alert('都完事了');
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

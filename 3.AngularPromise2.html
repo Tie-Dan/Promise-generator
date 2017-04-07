@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style></style>
+    <script src="angular.js"></script>
+</head>
+<body ng-controller="list">
+    <ul>
+        <li ng-repeat="item in arr">{{item}}</li>
+    </ul>
+</body>
+<script>
+    angular.module('app',[])
+            .controller('list',($scope,$q,$http)=>{
+                $q.all([
+                        $http.get('data/a.txt'),
+                        $http.get('data/b.txt'),
+                        $http.get('data/c.txt')
+                ]).then((r)=>{
+                    console.log(r);
+                    $scope.arr=r[0].data;
+                },(r)=>{
+                    console.log(r);
+                })
+            })
+</script>
+</html>
+
+
+
+
+
+
+
