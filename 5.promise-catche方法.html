@@ -43,11 +43,14 @@
         })
 
         promise1.then(res => {
-            console.log(456)
-            throw new Error('hello');
-        }).catch(err1 => {
-            console.log(err1);
-        });
+                console.log(456)
+                throw new Error('hello222');
+            }).then(() => {
+                throw new Error('hello111');
+            }).then()
+            .catch(err1 => {
+                console.log(err1);
+            });
     </script>
 </body>
 

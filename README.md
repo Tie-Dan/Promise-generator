@@ -60,7 +60,7 @@ finally()方法用于指定不管 Promise 对象最后状态如何，都会执�
 promise
 .then(result => {···})
 .catch(error => {···})
-.finally(() => {···})
+.finally(() => {···}) // 不接受任何参数
 ```
 
 **all方法:**
@@ -95,11 +95,11 @@ const p = Promise.race([p1, p2, p3]);
 
 > 普通函数执行时没有停止功能 Generator函数可以暂停
 >
-> Generator 生成器 返回的是iterator接口
->
-> CO库就是不停的调用next方法将最后结果返回
+> Generator生成器返回的是iterator接口
 >
 > Generator 中 yield 后面只能跟 Thunk 函数或 Promise 对象
+>
+> CO库就是不停的调用next方法将最后结果返回,用于 Generator 函数的自动执行。
 
 ### 异步终极解决方法async/await
 
