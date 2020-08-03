@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const promise = new Promise((resolve, rejected) => {
+            //throw new Error('test');
+        });
+        //此时只有then的第二个参数可以捕获到错误信息
+        promise.then(res => {
+            //
+        }, err => {
+            console.log(err);
+        }).catch(err1 => {
+            console.log(err1);
+        });
+        //此时catch方法可以捕获到错误信息
+        promise.then(res => {
+            //
+        }).catch(err1 => {
+            console.log(err1);
+        });
+
+        const promise1 = new Promise((resolve, rejected) => {
+            resolve('成功')
+        });
+
+        promise1.then(res => {
+            console.log(123)
+            throw new Error('hello');
+        }, err => {
+
+        }).then(res => {
+            console.log(res)
+        }, err => {
+            console.log(err)
+        })
+
+        promise1.then(res => {
+            console.log(456)
+            throw new Error('hello');
+        }).catch(err1 => {
+            console.log(err1);
+        });
+    </script>
+</body>
+
+</html>
